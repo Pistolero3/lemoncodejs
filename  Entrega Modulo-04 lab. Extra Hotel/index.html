@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="app.css" />
+    <title>Entrega Modulo 04 - Laboratorio</title>
+  </head>
+  <body>
+    <div class="title">
+    <h1>Choose your Holidays</h1>
+  </div>
+    </div>
+    <div class="main-container">
+      <select required id="roomtype">
+        <option value="0">Elige tu habitacion</option>
+        <option value="1">Standard</option>
+        <option value="2">JuniorSuite</option>
+        <option value="3">Suite</option>
+      </select>
+      <input type="checkbox" id="spa">Spa</input>
+      <select id="bedtype">
+        <option value="0">Elige tu cama</option>
+        <option value="1">Individual</option>
+        <option value="2">Doble</option>
+        <option value="3">Triple</option>
+      </select>
+      <label for="nights">Número de Noches</label>
+      <input type="number" id="nights">
+      <label for="parking">Días de parking</label>
+      <input type="number" id="parking">
+      <button id="calculate">Calcular</button>
+    </div>
+    <div class="price-box">
+    <h2 id="price">Price</h2>
+  </div>
+    <script src="app.js"></script>
+  </body>
+</html>
