@@ -1,0 +1,15 @@
+li {
+  padding: 5px;
+}
+
+#lista2 {
+  list-style-type: none;
+}
+
+.listas {
+  display: flex;
+  flex-direction: row;
+  justify-items: flex-start;
+  background-color: antiquewhite;
+  width: 50%;
+}
