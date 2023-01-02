@@ -1,0 +1,15 @@
+h1 {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+textarea {
+  margin: 10px;
+  height: 150px;
+}
+
