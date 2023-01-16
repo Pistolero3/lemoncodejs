@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootcamp Javascript - Módulo 6 - Algoritmos 3</title>
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Calculadora Con Cambio Óptimo</h1>
+      <div id="devolucion"></div>
+      <h3 id="owe"></h3>
+    </header>
+    <main>
+      <div class="container">
+        <input type="number" id="importetotal" placeholder="Importe a Pagar" />
+        <input type="number" id="entrega" placeholder="Importe Entregado" />
+        <button id="calculate">Calculate</button>
+        <button id="clear">Clear</button>
+      </div>
+      <form class="yournotes" id="formulario" method="post">
+        <div class="firstcolumn">
+          <input type="number" min="0" id="200" name="200" />
+          <label for="200">200</label>
+
+          <input type="number" min="0" id="100" name="100" />
+          <label for="100">100</label>
+
+          <input type="number" min="0" id="50" name="50" />
+          <label for="50">50</label>
+
+          <input type="number" min="0" id="20" name="20" />
+          <label for="20">20</label>
+
+          <input type="number" min="0" id="10" name="10" />
+          <label for="10">10</label>
+
+          <input type="number" min="0" id="5" name="5" />
+          <label for="5">5 euros</label>
+
+          <input type="number" min="0" id="2" name="2" />
+          <label for="2euros">2 euros</label>
+        </div>
+        <div class="secondcolumn">
+          <input type="number" min="0" id="1" name="1" />
+          <label for="1euro">1 euro</label>
+
+          <input type="number" min="0" id="0.5" name="0.5" />
+          <label for="50cents">50 cents</label>
+
+          <input type="number" min="0" id="0.2" name="0.2" />
+          <label for="20cents">20 cents</label>
+
+          <input type="number" min="0" id="0.1" name="0.1" />
+          <label for="10cents">10 cents</label>
+
+          <input type="number" min="0" id="0.05" name="0.05" />
+          <label for="5cents">5 cents</label>
+
+          <input type="number" min="0" id="0.02" name="0.02" />
+          <label for="2cents">2 cents</label>
+
+          <input type="number" min="0" id="0.01" name="0.01" />
+          <label for="1cent">1 cent</label>
+        </div>
+        <div>
+          <button type="submit" id="meter">Meter en caja</button>
+        </div>
+      </form>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
