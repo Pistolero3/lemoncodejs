@@ -33,9 +33,11 @@ const carrito = [
 
 console.log("************Listar todos los productos*************");
 
-for (compra of carrito) {
-  mostrarCarrito(compra);
-}
+const showChart = (compra) => {
+  for (compra of carrito) {
+    mostrarCarrito(compra);
+  }
+};
 
 function mostrarCarrito(compra) {
   console.log("--------ITEM--------");
@@ -46,24 +48,28 @@ function mostrarCarrito(compra) {
 
 console.log("************Eliminar el Producto 54657 del carrito*************");
 
-let indice;
-for (i = 0; i < carrito.length; i++) {
-  if (carrito[i].id == "54657") {
-    indice = i;
+const deleteProduct = (carrito, id) => {
+  let indice;
+  for (i = 0; i < carrito.length; i++) {
+    if (carrito[i].id == id) {
+      indice = i;
+    }
   }
-}
 
-carrito.splice(indice, 1);
+  carrito.splice(indice, 1);
 
-for (compra of carrito) {
-  mostrarCarrito(compra);
-}
+  for (compra of carrito) {
+    mostrarCarrito(compra);
+  }
+};
+
+deleteProduct(carrito, "54657");
 
 console.log("************Calcular el total de la compra*************");
 
 let total = 0;
 
-let calcularCompra = (carrito) => {
+const calcularCompra = (carrito) => {
   for (i = 0; i < carrito.length; i++) {
     total += carrito[i].price * carrito[i].count;
   }
@@ -74,15 +80,18 @@ console.log(`El total de su compra es: ${calcularCompra(carrito)}`);
 
 console.log("************Filtrar los productos Premium*************");
 
-let premiumProducts = [];
-for (compra of carrito) {
-  if (compra.premium) {
-    premiumProducts.push(compra);
+const chartFilter = (carrito) => {
+  let premiumProducts = [];
+  for (compra of carrito) {
+    if (compra.premium) {
+      premiumProducts.push(compra);
+    }
   }
-}
-for (compra of premiumProducts) {
-  mostrarCarrito(compra);
-}
+  for (compra of premiumProducts) {
+    mostrarCarrito(compra);
+  }
+};
+chartFilter(carrito);
 
 console.log("************Opcional, mensaje gasto de envío*************");
 
@@ -91,44 +100,50 @@ function comprobarPremiun(carrito) {
   for (compra of carrito) {
     sinGastos = sinGastos && compra.premium;
   }
-  return sinGastos;
+
+  if (sinGastos) {
+    console.log("Pedido sin gastos de envío");
+  } else {
+    console.log("Este pedido tiene gastos de envío");
+  }
 }
 
-if (comprobarPremiun(carrito)) {
-  console.log("Pedido sin gastos de envío");
-} else {
-  console.log("Este pedido tiene gastos de envío");
-}
+comprobarPremiun(carrito);
 
 console.log("************Opcional, imprimir la lista en html*************");
 
-const list = document.getElementById("lista");
-for (compra of carrito) {
-  const line = document.createElement("li");
-  line.textContent = `Item: ${compra.name}`;
-  list.appendChild(line);
-}
+const printShoppingList = () => {
+  const list1 = document.getElementById("lista");
+  const list2 = document.getElementById("lista2");
+  for (compra of carrito) {
+    const line = document.createElement("li");
+    line.textContent = `Item: ${compra.name}`;
+    list1.appendChild(line);
+    const line2 = document.createElement("li");
+    line2.textContent = `Price: ${compra.price} / Quantity: ${compra.count}`;
+    list2.appendChild(line2);
+  }
+};
 
-const list2 = document.getElementById("lista2");
-for (compra of carrito) {
-  const line2 = document.createElement("li");
-  line2.textContent = `Price: ${compra.price} / Quantity: ${compra.count}`;
-  list2.appendChild(line2);
-}
+printShoppingList();
 
 console.log("************Opcional, Descuento del 5%*************");
 
-if (total > 100) {
-  total = total - total * 0.05;
-  console.log(`Su total con descuento es: ${parseFloat(total).toFixed(2)}`);
-  document.getElementById(
-    "precio"
-  ).innerHTML = `Su precio total con descuento es: ${parseFloat(total).toFixed(
-    2
-  )} euros`;
-} else {
-  console.log("Su compra no es superior a 100 euros y no tiene descuento");
-  document.getElementById(
-    "precio"
-  ).innerHTML = `Su precio total es: ${parseFloat(total).toFixed(2)} euros`;
-}
+const getDiscount = (total) => {
+  if (total > 100) {
+    total = total - total * 0.05;
+    console.log(`Su total con descuento es: ${parseFloat(total).toFixed(2)}`);
+    document.getElementById(
+      "precio"
+    ).innerHTML = `Su precio total con descuento es: ${parseFloat(
+      total
+    ).toFixed(2)} euros`;
+  } else {
+    console.log("Su compra no es superior a 100 euros y no tiene descuento");
+    document.getElementById(
+      "precio"
+    ).innerHTML = `Su precio total es: ${parseFloat(total).toFixed(2)} euros`;
+  }
+};
+
+getDiscount(total);
