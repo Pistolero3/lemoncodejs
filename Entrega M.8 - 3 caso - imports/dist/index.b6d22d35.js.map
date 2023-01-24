@@ -1,0 +1,1 @@
+{"mappings":"AAAA,WAAW;AAEX,OAAO,MAAM,GAAG,WAAY;IAC1B;AACF","sources":["Desktop/Lemoncode/Modulo 08 - Imports/Entrega M.8 - 2 caso - imports/src/index.js"],"sourcesContent":["// index.js\n\nwindow.onload = function () {\n  printClientsAccounts();\n};\n"],"names":[],"version":3,"file":"index.b6d22d35.js.map","sourceRoot":"/__parcel_source_root/"}
